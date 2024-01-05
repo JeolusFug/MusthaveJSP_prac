@@ -4,15 +4,15 @@
     pageEncoding="UTF-8"%>
 <%@ include file="./IsLoggedIn.jsp"%> 
 <%
-String num = request.getParameter("num");  // 일련번호 받기 
-BoardDAO dao = new BoardDAO(application);  // DAO 생성
-BoardDTO dto = dao.selectView(num);        // 게시물 가져오기 
-String sessionId = session.getAttribute("UserId").toString(); // 로그인 ID 얻기 
-if (!sessionId.equals(dto.getId())) {      // 본인인지 확인
+String num = request.getParameter("num");  //いちれんばんごうかくとく 일련번호 받기 
+BoardDAO dao = new BoardDAO(application);  //DAOせいせい DAO 생성
+BoardDTO dto = dao.selectView(num);        //けいじぶつをもってきます 게시물 가져오기 
+String sessionId = session.getAttribute("UserId").toString(); // ログインIDかくとく로그인 ID 얻기 
+if (!sessionId.equals(dto.getId())) {      //ほんにんのかくにん 본인인지 확인
     JSFunction.alertBack("작성자 본인만 수정할 수 있습니다.", out);
     return;
 }
-dao.close();  // DB 연결 해제
+dao.close();  // DBせつぞくのかいじょDB 연결 해제
 %>
 <!DOCTYPE html>
 <html>
@@ -20,7 +20,7 @@ dao.close();  // DB 연결 해제
 <meta charset="UTF-8">
 <title>회원제 게시판</title>
 <script type="text/javascript">
-function validateForm(form) {  // 폼 내용 검증 
+function validateForm(form) {  //フォームのないようけんしょう 폼 내용 검증 
     if (form.title.value == "") {
         alert("제목을 입력하세요.");
         form.title.focus();

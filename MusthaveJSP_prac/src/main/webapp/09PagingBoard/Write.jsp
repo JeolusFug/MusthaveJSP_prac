@@ -8,7 +8,7 @@
 <title>회원제 게시판</title>
 <script type="text/javascript">
 function validateForm(form) {
-	if (form.title.value == "") {	// 폼내용 검증
+	if (form.title.value == "") {	//フォームのないようをけんしょう 폼내용 검증
 		alert("제목을 입력하세요.");
 		form.title.focus();
 		return false;
