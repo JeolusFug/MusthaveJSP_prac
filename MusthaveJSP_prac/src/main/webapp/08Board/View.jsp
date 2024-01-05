@@ -3,9 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-String num = request.getParameter("num");	// 일련번호 받기
+String num = request.getParameter("num");	//いちれんばんごうかくどく 일련번호 받기
 
-BoardDAO dao = new BoardDAO(application);		// DAO 생성
+BoardDAO dao = new BoardDAO(application);		//DAOせいせい DAO 생성
 dao.updateVisitCount(num);
 BoardDTO dto = dao.selectView(num);
 dao.close();
@@ -20,9 +20,10 @@ function deletePost() {
 	var confirmed = confirm("정말로 삭제하시겠습니까?");
 	if (confirmed) {
 		var form = document.writeFrm;		// 이름(name)이 "writeFrm"인 폼 선택
-		form.method = "post";				// 전송 방식
-		form.action = "DeleteProcess.jsp";	// 전송 경로
-		form.submit();						// 폼값 전송
+											//なまえが“writeFrm”のフォームをせんたく
+		form.method = "post";				// でんそうほうしき전송 방식
+		form.action = "DeleteProcess.jsp";	// でんそうけいろ전송 경로
+		form.submit();						// フォームのあたいをでんそう폼값 전송
 	}
 }
 </script>
@@ -54,6 +55,7 @@ function deletePost() {
 			<td>내용</td>
 			<td colspan="3" height="100">
                 <%= dto.getContent().replace("\r\n", "<br/>") %></td> 
+                <!-- \r\n : エンターキーを<br/>タグにへんこうしてウェブブラウザじょうでかいぎょうされるようにします-->
 				<!-- \r\n : 엔터키, 엔터키를 <br/> 태그로 변경해서 웹 브라우저 상에서 줄바꿈이 되도록함 -->
 		</tr>
 		<tr>
